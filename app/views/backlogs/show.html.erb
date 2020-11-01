@@ -1,0 +1,61 @@
+<div class="backlog-page">
+  <div class="side-menu">
+    <%= render partial: 'side_menu'%>
+  </div>
+
+  <div class="main-body">
+    <h1>Show Backlog Information</h1>
+    <div class="single-backlog">
+      <div class="card">
+        <%= image_tag "test_img.jpg", class: "card-img" %>
+        <div class="card-img-overlay white-text">
+          <div class="card-title">
+            <h2 class="strong">
+              <%= @backlog.title %>
+            </h2>
+          </div>
+          <div class="card-text">
+            <p>
+              <%= @backlog.body %>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h2>
+            <%= "Open Tickets" %>
+          </h2>
+        </div>
+        <div class="tickets-list">
+          <% @backlog.tickets.each do |ticket| %>
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">
+                  <%= ticket.title %>
+                </h4>
+                <%= link_to backlog_ticket_url(@backlog, ticket), {class: "btn btn-outline-danger btn-default btn-sm delete-button", :method => :delete} do%>
+                  <i style="font-size:18px" class="material-icons">&#xe92b;</i>
+                  Delete
+                <% end %>
+                <p class="card-text">
+                  <%= ticket.description %>
+                </p>
+                <p class="time card-text text-muted">
+                  <%= "Last updated: " + ticket.updated_at.to_s %>
+                </p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="createTicketModal" tabindex="-1" role="dialog" aria-labelledby="createTicketModal" aria-hidden="true">
+  <%= render partial: 'tickets/new'%>
+</div>
+<div class="modal fade" id="editBacklogModal" tabindex="-1" role="dialog" aria-labelledby="editBacklogModal" aria-hidden="true">
+  <%= render partial: 'edit'%>
+</div>
