@@ -1,0 +1,19 @@
+<%if @backlog.present? %>
+  <%= link_to backlogs_path, class: "btn btn-outline-dark btn-block text-left" do %>
+    <i class="material-icons">&#xe5c4;</i>
+    All Backlogs
+  <% end %>
+  <button type="button" class="btn btn-outline-dark btn-block text-left" data-toggle="modal" data-target="#editBacklogModal">
+    <i class="material-icons">&#xe3c9;</i>
+    Edit Backlog Information
+  </button>
+  <button type="button" class="btn btn-outline-dark btn-block text-left" data-toggle="modal" data-target="#createTicketModal">
+    <i class="material-icons">&#xe02e;</i>
+    Create Ticket
+  </button>
+<% else %>
+  <button type="button" class="btn btn-outline-dark btn-block text-left" data-toggle="modal" data-target="#createBacklogModal">
+    <i class="material-icons">&#xe146;</i>
+    Create new Backlog
+  </button>
+<% end %>

@@ -1,0 +1,35 @@
+<div class="backlog-page">
+  <div class="side-menu">
+    <%= render partial: 'side_menu'%>
+  </div>
+
+  <div class="main-body">
+    <h1>Backlogs List</h1>
+    <p>Find any available backlog or create a new one.</p>
+    <div class="cards-grid">
+      <% @backlogs.each do |backlog| %>
+        <div class="card">
+          <a href="<%= backlog_url(backlog) %>">
+            <div class="card_image">
+              <%= image_tag "test_img.jpg" %>
+            </div>
+            <div class="card_title title-white">
+              <p>
+                <%= backlog.title %>
+              </p>
+            </div>
+            <div class="card_description text-white">
+              <p>
+                <%= backlog.body %>
+              </p>
+            </div>
+          </a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="createBacklogModal" tabindex="-1" role="dialog" aria-labelledby="createBacklogModal" aria-hidden="true">
+  <%= render partial: 'new'%>
+</div>
