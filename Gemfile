@@ -16,6 +16,8 @@ gem 'jquery-rails'
 gem 'sprockets-rails', '>= 2.3.2'
 gem 'simple_form'
 gem 'font-awesome-sass', '~> 5.15.1'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 # Use Devise gem for user authentication
 gem 'devise'
@@ -28,8 +30,6 @@ end
 group :development, :test do
   gem 'listen', '~> 3.2'
   gem 'rspec-rails'
-  # Translate .erb to .haml
-  gem "html2haml"
   gem "pry"
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
