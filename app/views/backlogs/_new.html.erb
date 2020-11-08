@@ -6,7 +6,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <%= form_with(model: [ @backlogs.build ], local: true) do |f| %>
+    <%= form_with scope: :backlog, url: backlogs_path, method: :post do |f| %>
       <div class="modal-body">
         <div class="form-group">
           <label class="col-form-label">Title:</label>
