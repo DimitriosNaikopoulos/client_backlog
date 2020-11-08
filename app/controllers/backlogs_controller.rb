@@ -1,12 +1,14 @@
 class BacklogsController < ApplicationController
   def index
+    return search if params.dig(:backlogs, :query)
+
     @backlogs = Backlog.all
   end
 
-  def new 
+  def new
     @backlog = Backlog.new
   end
-  
+
   def create
     @backlog = Backlog.new(backlog_params)
 
@@ -36,5 +38,9 @@ class BacklogsController < ApplicationController
 
   def backlog_params
     params.require(:backlog).permit(:title, :body)
+  end
+
+  def search
+    @backlogs = Backlog.search_backlogs(params[:backlogs][:query])
   end
 end
