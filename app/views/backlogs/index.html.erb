@@ -18,7 +18,7 @@
         <div class="cards-grid">
         <% @backlogs.each do |backlog| %>
           <div class="card">
-            <a href="<%= backlog_url(backlog) %>">
+            <a href="<%= backlog_url(backlog.id) %>">
               <div class="card_image">
                 <%= image_tag "test_img.jpg" %>
               </div>
