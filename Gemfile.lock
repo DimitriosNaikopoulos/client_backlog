@@ -104,6 +104,11 @@ GEM
       multi_json
     erubi (1.9.0)
     execjs (2.7.0)
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
     faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
@@ -147,6 +152,8 @@ GEM
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     public_suffix (4.0.5)
     puma (4.3.5)
       nio4r (~> 2.0)
@@ -221,6 +228,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    shoulda-matchers (4.4.1)
+      activesupport (>= 4.2.0)
     simple_form (5.0.3)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -273,16 +282,18 @@ DEPENDENCIES
   devise
   elasticsearch-model
   elasticsearch-rails
+  factory_bot_rails
   font-awesome-sass (~> 5.15.1)
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.2)
-  pry
+  pry-rails
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
   rspec-rails
   sass-rails (>= 6)
   selenium-webdriver
+  shoulda-matchers
   simple_form
   sprockets-rails (>= 2.3.2)
   sqlite3 (~> 1.4)
