@@ -4,25 +4,22 @@ source 'https://rubygems.org'
 
 ruby '2.7.0'
 
-gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
-gem 'sqlite3', '~> 1.4'
-gem 'puma', '~> 4.1'
-gem 'sass-rails', '>= 6'
-gem 'webpacker', '~> 4.0'
-gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
 gem 'bootsnap'
 gem 'bootstrap'
-gem 'jquery-rails'
-gem 'sprockets-rails', '>= 2.3.2'
-gem 'simple_form'
-gem 'font-awesome-sass', '~> 5.15.1'
+gem 'devise'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
-
-# Use Devise gem for user authentication
-gem 'devise'
+gem 'font-awesome-sass', '~> 5.15.1'
+gem 'jbuilder', '~> 2.7'
+gem 'jquery-rails'
+gem 'mysql2'
+gem 'puma', '~> 4.1'
+gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
+gem 'sass-rails', '>= 6'
+gem 'simple_form'
+gem 'sprockets-rails', '>= 2.3.2'
+gem 'turbolinks', '~> 5'
+gem 'webpacker', '~> 4.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -30,13 +27,19 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'factory_bot_rails'
+  gem 'faker'
   gem 'listen', '~> 3.2'
   gem 'pry-rails'
   gem 'rspec-rails'
+  gem 'rubocop'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+end
+
+group :test do
+  gem 'database_cleaner'
 end
 
 group :development do

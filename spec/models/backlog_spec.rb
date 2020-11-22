@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Backlog, type: :model do
@@ -7,19 +9,21 @@ RSpec.describe Backlog, type: :model do
 
   describe '#search_backlogs' do
     let(:query) { 'my backlog' }
-    let(:title_match_backlog) { create(:backlog, title: 'This is my backlog') }
-    let(:body_match_backlog) { create(:backlog, body: 'This is my backlog') }
-    let(:backlogs) { create_list(:backlog, 20) }
+    let!(:subject) { Backlog.search_backlogs(query) }
+
+    before(:all) do
+      create(:backlog, title: 'This is my backlog')
+      create(:backlog, body: 'This is my backlog')
+      create_list(:backlog, 20)
+    end
 
     it 'should return the correct backlogs' do
-      search_response = Backlog.search_backlogs(query)
-      binding.pry
-      expect(search_response.size).to eq(2)
+      expect(subject.size).to eq(2)
     end
 
     it 'should prioritise title over body matches' do
-
+      expect(subject.first.title).to eq('This is my backlog')
+      expect(subject[1].body).to eq('This is my backlog')
     end
-
   end
 end
