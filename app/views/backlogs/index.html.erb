@@ -6,27 +6,37 @@
   <div class="main-body">
     <h1>Backlogs List</h1>
     <p>Find any available backlog or create a new one.</p>
-    <div class="cards-grid">
-      <% @backlogs.each do |backlog| %>
-        <div class="card">
-          <a href="<%= backlog_url(backlog) %>">
-            <div class="card_image">
-              <%= image_tag "test_img.jpg" %>
-            </div>
-            <div class="card_title title-white">
-              <p>
-                <%= backlog.title %>
-              </p>
-            </div>
-            <div class="card_description text-white">
-              <p>
-                <%= backlog.body %>
-              </p>
-            </div>
-          </a>
+
+    <%= form_for :backlogs, url: backlogs_path, method: :get do |f| %>
+      <%= f.text_field :query, value: params[:search_backlogs].presence && params[:search_backlogs][:query] %>
+      <%= f.submit 'Search' %>
+    <% end %>
+
+    <% if @backlogs.empty? %>
+      <h2>No backlogs found.</h2>
+    <% else %>
+        <div class="cards-grid">
+        <% @backlogs.each do |backlog| %>
+          <div class="card">
+            <a href="<%= backlog_url(backlog.id) %>">
+              <div class="card_image">
+                <%= image_tag "test_img.jpg" %>
+              </div>
+              <div class="card_title title-white">
+                <p>
+                  <%= backlog.title %>
+                </p>
+              </div>
+              <div class="card_description text-white">
+                <p>
+                  <%= backlog.body %>
+                </p>
+              </div>
+            </a>
+          </div>
+        <% end %>
         </div>
-      <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
 
