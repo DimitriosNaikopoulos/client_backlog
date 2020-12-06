@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class Backlog < ApplicationRecord
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
+  include Searchable
 
   has_many :tickets, dependent: :destroy
 

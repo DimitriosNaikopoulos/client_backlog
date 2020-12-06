@@ -26,15 +26,19 @@
           <h2>
             <%= "Open Tickets" %>
           </h2>
+          <%= form_for :backlog, url: backlog_path, method: :get do |f| %>
+            <%= f.text_field :query, value: params[:search_backlogs].presence && params[:search_backlogs][:query] %>
+            <%= f.submit 'Search' %>
+          <% end %>
         </div>
         <div class="tickets-list">
-          <% @backlog.tickets.each do |ticket| %>
+          <% tickets.each do |ticket| %>
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">
                   <%= ticket.title %>
                 </h4>
-                <%= link_to backlog_ticket_url(@backlog, ticket), {class: "btn btn-outline-danger btn-default btn-sm delete-button", :method => :delete} do%>
+                <%= link_to backlog_ticket_url(@backlog, ticket.id), {class: "btn btn-outline-danger btn-default btn-sm delete-button", :method => :delete} do%>
                   <i style="font-size:18px" class="material-icons">&#xe92b;</i>
                   Delete
                 <% end %>

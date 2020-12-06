@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class BacklogsController < ApplicationController
   def index
-    return search if params.dig(:backlogs, :query)
+    return search_backlogs if params.dig(:backlogs, :query)
 
     @backlogs = Backlog.all
   end
@@ -18,6 +20,7 @@ class BacklogsController < ApplicationController
 
   def show
     @backlog = Backlog.find(params[:id])
+    search_tickets if params.dig(:backlog, :query)
   end
 
   def edit
@@ -40,7 +43,11 @@ class BacklogsController < ApplicationController
     params.require(:backlog).permit(:title, :body)
   end
 
-  def search
+  def search_backlogs
     @backlogs = Backlog.search_backlogs(params[:backlogs][:query])
+  end
+
+  def search_tickets
+    @tickets = Ticket.search_tickets(params[:backlog][:query], params[:id])
   end
 end
