@@ -2,7 +2,8 @@
 
 FactoryBot.define do
   factory :ticket do
-    title { 'Test title' }
-    description { 'Test description' }
+    title { Faker::Lorem.unique.sentence(word_count: 2) }
+    description { Faker::Lorem.unique.sentence(word_count: 8) }
+    association :backlog
   end
 end

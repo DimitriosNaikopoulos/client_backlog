@@ -6,6 +6,8 @@ require File.expand_path('../config/environment', __dir__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 require 'capybara/rspec'
+require 'test_prof/recipes/rspec/factory_default'
+require 'test_prof/recipes/rspec/let_it_be'
 
 # Require all the support files
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }

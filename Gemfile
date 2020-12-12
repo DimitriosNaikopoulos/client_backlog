@@ -33,6 +33,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'selenium-webdriver'
+  gem 'test-prof'
   gem 'shoulda-matchers'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
