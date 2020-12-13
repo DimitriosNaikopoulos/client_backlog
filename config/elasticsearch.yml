@@ -1,0 +1,14 @@
+development: &default
+  host: 'client_backlog_elasticsearch_1:9200'
+  transport_options:
+    request:
+      timeout: !!integer 300
+test:
+  <<: *default
+staging:
+  <<: *default
+production:
+  host: ''
+  transport_options:
+    request:
+      timeout: !!integer 300
