@@ -3,6 +3,8 @@
 module Searchable
   extend ActiveSupport::Concern
 
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
+  included do
+    include Elasticsearch::Model
+    include Elasticsearch::Model::Callbacks
+  end
 end
