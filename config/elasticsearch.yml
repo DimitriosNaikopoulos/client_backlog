@@ -1,5 +1,5 @@
 development: &default
-  host: 'client_backlog_elasticsearch_1:9200'
+  host: elasticsearch:9200
   transport_options:
     request:
       timeout: !!integer 300

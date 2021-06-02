@@ -13,6 +13,7 @@ gem 'font-awesome-sass', '~> 5.15.1'
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails'
 gem 'mysql2'
+gem 'prometheus-client'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'sass-rails', '>= 6'
@@ -37,6 +38,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'elastic-apm'
 end
 
 group :test do

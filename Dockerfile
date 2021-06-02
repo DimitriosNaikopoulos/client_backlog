@@ -13,3 +13,4 @@ RUN bundle check || bundle install
 RUN yarn install --ckeck-files
 
 EXPOSE 3000 3000
+CMD ["rails", "server", "-b", "0.0.0.0"]
